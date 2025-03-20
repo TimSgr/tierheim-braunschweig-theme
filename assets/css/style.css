@@ -1,0 +1,99 @@
+/* Animation */
+* {
+    transition: all 0.3s ease-in-out; /* Sanfte Übergänge für alles */
+    animation-duration: 1s; /* Langsamere Animationen */
+    animation-timing-function: ease-in-out; /* Weicher Start & Ende */
+}
+
+/* Flex */
+.flex{
+    display: flex;
+}
+.flex-col{
+    flex-direction: column;
+}
+.flex-row{
+    flex-direction: row;
+}
+.flex-center{
+    justify-content: center;
+    align-items: center;
+}
+.justify-center{
+    justify-content: center;
+}
+.align-center{
+    align-content: center;
+}
+.items-center{
+    align-items: center;
+}
+.gap-32{
+    gap: 32px;
+}
+.justify-between{
+    justify-content: space-between;
+}
+
+/* Grid */
+.grid-2-2{
+    grid-template-columns: repeat(2,2fr);
+    gap: 32px;
+}
+
+.tierheim-wrapper{
+    display: flex;
+}
+
+/* Text */
+.text-center{
+    text-align: center;
+}
+
+/* card */
+.card{
+    all: unset;
+    border: 1px solid white;
+    border-radius: 8px;
+    padding: 16px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    cursor: pointer;
+}
+
+.card .card-content{
+    all: unset;
+    color: white;
+}
+
+.card:hover{
+    box-shadow: 3px 3px white;
+}
+
+/* general */
+@media screen and (min-width: 1440px){
+    .tierheim-content{
+        max-width: 1328px;
+    }
+}
+@media screen and (min-width: 1024px) and (max-width: 1439px){
+    .tierheim-content{
+        max-width: 90%;
+    }
+}
+@media screen and (max-width: 1023px){
+    .tierheim-content{
+        max-width: 90%;
+    }
+}
+@media screen and (max-width: 767px){
+    .tierheim-content{
+        max-width: 90%;
+    }
+}
+@media screen and (max-width: 324px){
+    .tierheim-content{
+        max-width: 90%;
+    }
+}
