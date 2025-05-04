@@ -13,6 +13,9 @@ $args = [
     'category_name' => $query,
 ];
 
+$categories = ["Hunde", "Katzen", "Kleintiere"];
+$context['categories'] = $categories;
+
 $context['posts'] = Timber::get_posts($args);
 error_log(print_r($context['posts'], true));
 Timber::render('page-animals-category.twig', $context);

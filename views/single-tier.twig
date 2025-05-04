@@ -1,0 +1,21 @@
+{% extends "base.twig" %}
+
+{% block content %}
+	<div class="content-wrapper">
+		<article class="post-type-{{ post.post_type }}" id="post-{{ post.ID }}">
+			<img src="{{ post.thumbnail.src|resize(1200, 300) }}">
+			<section class="article-content">
+				<h1 class="article-h1">{{ post.title }}</h1>
+				<div class="article-body">
+					{{post.content}}
+				</div>
+			</section>
+            <section>
+                {% for info in weitere_infos %}
+                <h2>{{ info.headline }}</h2>
+                <div>{{ info.content }}</div>
+                {% endfor %}
+            </section>
+		</article>
+	</div>
+{% endblock %}

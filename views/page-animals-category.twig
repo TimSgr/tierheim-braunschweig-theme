@@ -4,11 +4,20 @@
 <div class="flex flex-col items-center justify-center gap-sections">
     <div class="flex flex-col items-center w-full">
         <h1 class="text-center">Tiervermittlung</h1>
-            <div class="grid grid-2-2 w-full">
-                {% for post in posts %}
-                    {% include 'partial/animal-card.twig' with { post: post } %}
+            <div>
+                {% for category in categories %}
+                    <a href="/tier-kategorie?{{ category|lower }}">{{ category }}</a>
                 {% endfor %}
             </div>
+            {% if posts is empty %}
+                Aktuell vermitteln wir leider keine Tiere, die deinen Kriterien entsprechen
+            {% else %}
+                <div class="grid grid-2-2 w-full">
+                    {% for post in posts %}
+                        {% include 'partial/animal-card.twig' with { post: post } %}
+                    {% endfor %}
+                </div>
+            {% endif %}
         </div>
     </div>
 </div>
