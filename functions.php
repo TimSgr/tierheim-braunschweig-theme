@@ -36,3 +36,34 @@ function enqueue_scripts(){
     );
 }
 */
+
+// In deiner functions.php oder eigenem Mini-Plugin
+add_action('admin_bar_menu', 'add_purge_button_to_admin_bar', 100);
+
+function add_purge_button_to_admin_bar($wp_admin_bar) {
+    if (!current_user_can('manage_options')) return;
+
+    $wp_admin_bar->add_node([
+        'id'    => 'purge_varnish_cache',
+        'title' => '🔄 Varnish Cache leeren',
+        'href'  => wp_nonce_url(admin_url('?purge_varnish=1'), 'purge-varnish'),
+    ]);
+}
+
+add_action('init', function () {
+    if (is_admin() && current_user_can('manage_options') && isset($_GET['purge_varnish'])) {
+        if (!check_admin_referer('purge-varnish')) return;
+
+        $url = home_url('/');
+
+        $response = wp_remote_request($url, [
+            'method' => 'PURGE',
+            'headers' => ['Host' => $_SERVER['HTTP_HOST']],
+        ]);
+
+        if (!is_wp_error($response)) {
+            wp_safe_redirect(admin_url('?purge_success=1'));
+            exit;
+        }
+    }
+});

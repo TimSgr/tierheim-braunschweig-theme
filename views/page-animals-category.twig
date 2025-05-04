@@ -1,0 +1,15 @@
+{% extends "base.twig" %}
+
+{% block content %}
+<div class="flex flex-col items-center justify-center gap-sections">
+    <div class="flex flex-col items-center w-full">
+        <h1 class="text-center">Tiervermittlung</h1>
+            <div class="grid grid-2-2 w-full">
+                {% for post in posts %}
+                    {% include 'partial/animal-card.twig' with { post: post } %}
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

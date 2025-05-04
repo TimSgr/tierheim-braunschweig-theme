@@ -1,5 +1,5 @@
 /* Animation */
-* {
+main * {
     transition: all 0.3s ease-in-out; /* Sanfte Übergänge für alles */
     animation-duration: 1s; /* Langsamere Animationen */
     animation-timing-function: ease-in-out; /* Weicher Start & Ende */
@@ -53,7 +53,7 @@
 /* card */
 .card{
     all: unset;
-    border: 1px solid white;
+    border: 2px solid white;
     border-radius: 8px;
     padding: 16px;
     display: flex;
@@ -63,15 +63,75 @@
 }
 
 .card .card-content{
-    all: unset;
-    color: white;
+    --pico-color: white;
 }
 
 .card:hover{
     box-shadow: 3px 3px white;
 }
 
+/* Animal Card */
+.animal_card{
+    border: 1px solid white;
+    border-radius: 5px;
+}
+
 /* general */
+
+.w-full{
+    width: 100%;
+}
+
+button{
+    --pico-background-color: #009034;
+    --pico-border-color:  #009034;
+}
+button[type=submit]{
+    --pico-background-color: #009034;
+    --pico-border-color:  #009034;
+}
+button[type=submit]:hover{
+    --pico-background-color: #027c2f;
+    --pico-border-color:  #027c2f;
+}
+button:hover{
+    --pico-background-color: #027c2f;
+    --pico-border-color: #027c2f;
+}
+.border-radius-16{
+    --pico-border-radius: 16px;
+}
+
+.border-radius-32{
+    --pico-border-radius: 32px;
+}
+
+.position-fixed{
+    position: fixed;
+}
+
+iframe.maps-map{
+    width: 880px; 
+    border: none; 
+    padding: 0px; 
+    margin: 0px; 
+    height: 320px;
+}
+
+
+.px-12{
+    padding-left: 12px;
+    padding-right: 12px;
+}
+
+.py-8{
+    padding-top: 8px;
+    padding-bottom: 8px;
+}
+
+.flex-wrap{
+    flex-wrap: wrap;
+}
 @media screen and (min-width: 1440px){
     .tierheim-content{
         max-width: 1328px;
@@ -82,18 +142,59 @@
         max-width: 90%;
     }
 }
+@media screen and (min-width: 1024px){
+    .gap-sections{
+        gap: 64px;
+    }
+}
 @media screen and (max-width: 1023px){
     .tierheim-content{
         max-width: 90%;
+    }
+    iframe.maps-map{
+        width: 480px; 
+        border: none; 
+        padding: 0px; 
+        margin: 0px; 
+        height: 320px;
+    }
+    .gap-sections{
+        gap: 64px;
     }
 }
 @media screen and (max-width: 767px){
     .tierheim-content{
         max-width: 90%;
     }
+    iframe.maps-map{
+        width: 420px; 
+        border: none; 
+        padding: 0px; 
+        margin: 0px; 
+        height: 300px;
+    }
+    .grid-2-2{
+        grid-template-columns: repeat(1,1fr);
+    }
+    .gap-sections{
+        gap: 32px;
+    }
 }
 @media screen and (max-width: 324px){
     .tierheim-content{
         max-width: 90%;
     }
+}
+
+/* Tierheim Header */
+.tierheim-header{
+    width: 100%;
+    left: 0;
+    top: 0;
+    background-color: rgb(89, 199, 98);
+    padding: 20px 0px;
+}
+
+#paypal-funding button[type=submit]{
+    margin-bottom: 0px;
 }
